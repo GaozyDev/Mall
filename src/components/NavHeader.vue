@@ -1,5 +1,5 @@
 <template>
-  <div>我是导航栏</div>
+  <div>nav-header</div>
 </template>
 <script>
   export default {
