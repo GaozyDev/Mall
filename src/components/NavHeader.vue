@@ -144,9 +144,8 @@ export default {
         }
       }).then((res)=>{
         // Math.max(res.list,6)
-        if(res.list.length>=6) {
-          this.phoneList = res.list.slice(0,6)
-        }
+        this.phoneList = res.list.slice(0,6)
+
       })
     },
     goToCart() {
@@ -263,7 +262,7 @@ export default {
             box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
             z-index: 10;
             transition: all .5s;
-
+            background-color: #ffffff;
             .product {
               position: relative;
               float: left;
