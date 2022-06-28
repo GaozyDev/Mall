@@ -6,9 +6,11 @@ import VueLazyload from "vue-lazyload";
 Vue.use(VueLazyload,{
   loading:'/imgs/loading-svg/loading-bars.svg'
 })
+import VueCookie from 'vue-cookie'
+Vue.use(VueCookie)
 // import env from './env'
 //mock开关
-const mock = true
+const mock = false
 if(mock) {
   require('./mock/api')
 }
@@ -28,6 +30,7 @@ axios.interceptors.response.use(function(response){
     window.location.href = '/#/login'
   } else {
     alert(res.msg)
+    return Promise.reject((res))
   }
 })
 //统一引入

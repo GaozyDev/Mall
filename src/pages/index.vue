@@ -230,14 +230,14 @@ export default {
     },
     addCart() {
       this.showModal = true
-      // this.axios.get('/carts',{
-      //   productId:id,
-      //   selected: true
-      // }).then(()=>{
-      //
-      // }).catch(()=>{
-      //   this.showModal = true
-      // })
+      this.axios.get('/carts',{
+        productId:id,
+        selected: true
+      }).then(()=>{
+
+      }).catch(()=>{
+        this.showModal = true
+      })
     },
     goToCart(){
       this.$router.push('/cart');

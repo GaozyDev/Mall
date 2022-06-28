@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import Home from "./pages/home"
+import Login from "./pages/login"
 import Index from "./pages/index"
 import Product from "./pages/product"
 import Detail from "./pages/detail"
@@ -38,6 +39,11 @@ export default new VueRouter({
                     component:Detail,
                 }
             ]
+        },
+        {
+            path:'/login',
+            name:'login',
+            component:Login,
         },
         {
             path:'/cart',
