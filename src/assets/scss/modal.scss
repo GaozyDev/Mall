@@ -7,7 +7,15 @@
     background-color: #000000;
     opacity: 0.5;
   }
-
+  &.slide-enter-active{
+    top:0;
+  }
+  &.slide-leave-active{
+    top:-100%;
+  }
+  &.slide-enter{
+    top:-100%;
+  }
   .modal-dialog {
     @include position(absolute, 40%, 50%, 660px, auto);
     background-color: #ffffff;
@@ -39,7 +47,7 @@
       height: 82px;
       line-height: 82px;
       text-align: center;
-      background-color: #F5F5F5;
+      background-color: #ffffff;
     }
   }
 }
