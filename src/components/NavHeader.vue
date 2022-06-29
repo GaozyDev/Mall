@@ -12,7 +12,7 @@
           <a href="javascript:;" v-if="username">{{ username }}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;" v-if="username">我的订单</a>
-          <a href="javascript:;" class="my-cart"><span class="icon-cart" @click="goToCart"></span>购物车</a>
+          <a href="javascript:;" class="my-cart"><span class="icon-cart" @click="goToCart"></span>购物车({{cartCount}})</a>
         </div>
       </div>
     </div>
@@ -115,13 +115,22 @@
   </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'nav-header',
   data() {
     return {
       phoneList: [],
-      username: ''
     }
+  },
+  computed: {
+    ...mapState(['username','cartCount'])
+    // username() {
+    //   return this.$store.state.username
+    // },
+    // cartCount() {
+    //   return this.$store.state.cartCount
+    // }
   },
   filters:{
     currency(val) {

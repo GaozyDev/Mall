@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import router from "./router";
+import store from './store'
 import axios from 'axios'
 Vue.prototype.axios = axios
 import VueLazyload from "vue-lazyload";
@@ -22,12 +23,15 @@ axios.defaults.timeout = 8000
 //接口错误拦截  类似于请求拦截器吧
 axios.interceptors.response.use(function(response){
   let res = response.data
+  let path = location.hash
   //前端和后台商量好的，成功的状态码为0
   if (res.status == 0) {
     return res.data
     //状态码为10表示未登录
   } else if (res.status == 10) {
-    window.location.href = '/#/login'
+    if(path != '/#index') {
+      window.location.href = '/#/login'
+    }
   } else {
     alert(res.msg)
     return Promise.reject((res))
@@ -43,6 +47,7 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App),
   // beforeCreate() {
   //   Vue.prototype.$API = API

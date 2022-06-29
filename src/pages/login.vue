@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="container">
-      <a href="/#/index"><img v-lazy="'/imgs/login-logo.png'" alt=""></a>
+      <a href="/#/index"><img src="/imgs/login-logo.png" alt=""></a>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -55,6 +55,8 @@ export default {
         password
       }).then((res) => {
         this.$cookie.set('userId',res.id,{expires:'1M'})
+        this.$store.dispatch('saveUserName',res.username)
+        this.$store.dispatch('saveCartCount',res.cartCount)
         this.$router.push('/index')
       })
     },
