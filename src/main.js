@@ -29,7 +29,7 @@ axios.interceptors.response.use(function(response){
     return res.data
     //状态码为10表示未登录
   } else if (res.status == 10) {
-    if(path != '/#index') {
+    if(path != '/#/index') {
       window.location.href = '/#/login'
     }
   } else {

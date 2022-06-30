@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar">
+  <div class="nav-bar" :class="{'is_fixed':isFixed}">
     <div class="container">
       <div class="pro-title">
         xiaomi
@@ -15,7 +15,24 @@
 </template>
 <script>
   export default {
-    name:'product-param'
+    name:'product-param',
+    data() {
+      return {
+        isFixed:false
+      }
+    },
+    mounted() {
+      window.addEventListener('scroll',this.initHeight)
+    },
+    methods:{
+      initHeight() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        this.isFixed = scrollTop > 152 ? true : false
+      }
+    },
+    destroyed(){
+      window.removeEventListener('scroll',this.initHeight,false)
+    }
   }
 </script>
 <style lang="scss">
